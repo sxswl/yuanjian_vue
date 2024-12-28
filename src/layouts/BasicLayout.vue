@@ -5,7 +5,7 @@
       <!-- Header 部分 -->
       <a-layout-header class="header">
         <div class="logo">
-          <img src="logo.png" alt="logo" />
+          <img src="../assets/logo.png" alt="logo" />
           <span>远见汽车销售预测系统</span>
         </div>
         <div class="auth-buttons">
