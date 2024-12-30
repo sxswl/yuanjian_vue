@@ -1,173 +1,240 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import BasicLayout from "@/layouts/BasicLayout.vue"; // 导入 BasicLayout
+import AdminLayout from "@/layouts/AdminLayout.vue"; // 导入 AdminLayout
+import CommonLayout from "@/layouts/CommonLayout.vue";
 import Portal from "../views/PortalView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "portal",
-    component: Portal,
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    component: BasicLayout, // 使用 BasicLayout 作为布局
+    children: [
+      {
+        path: "",
+        name: "portal",
+        component: Portal,
+      },
+    ],
   },
   {
     path: "/commonusers",
-    name: "commonusers",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/CommonUsersinfo.vue"),
+    component: CommonLayout, // 使用 AdminLayout 作为布局
+    children: [
+      {
+        path: "",
+        name: "commonusers",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/CommonUsersinfo.vue"
+          ),
+      },
+    ],
   },
   {
     path: "/adminusers",
-    name: "adminusers",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AdminUsersinfo.vue"),
+    component: AdminLayout,
+    children: [
+      {
+        path: "",
+        name: "adminusers",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/AdminUsersinfo.vue"),
+      },
+    ],
   },
   {
     path: "/salesforecast",
-    name: "salesforecast",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/SalesForecast.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "salesforecast",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/SalesForecast.vue"),
+      },
+    ],
   },
   {
     path: "/deleteuser",
-    name: "deleteuser",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/DeleteUser.vue"),
+    component: AdminLayout,
+    children: [
+      {
+        path: "",
+        name: "deleteuser",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/DeleteUser.vue"),
+      },
+    ],
   },
   {
     path: "/insertuser",
-    name: "insertuser",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/InsertUser.vue"),
+    component: AdminLayout,
+    children: [
+      {
+        path: "",
+        name: "insertuser",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/InsertUser.vue"),
+      },
+    ],
   },
   {
     path: "/saleslist",
-    name: "saleslist",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/SalesList.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "saleslist",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/SalesList.vue"),
+      },
+    ],
   },
   {
     path: "/selectuser",
-    name: "selectuser",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/SelectUser.vue"),
+    component: AdminLayout,
+    children: [
+      {
+        path: "",
+        name: "selectuser",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/SelectUser.vue"),
+      },
+    ],
   },
   {
     path: "/updateuser",
-    name: "updateuser",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/UpdateUser.vue"),
+    component: AdminLayout,
+    children: [
+      {
+        path: "",
+        name: "updateuser",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/UpdateUser.vue"),
+      },
+    ],
   },
   {
     path: "/bindemail",
-    name: "bindemail",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/BindEmail.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "bindemail",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/BindEmail.vue"),
+      },
+    ],
   },
   {
     path: "/changepassword",
-    name: "changepassword",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ChangePassword.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "changepassword",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/ChangePassword.vue"),
+      },
+    ],
   },
   {
     path: "/findpassword",
-    name: "findpassword",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/FindPassword.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "findpassword",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/FindPassword.vue"),
+      },
+    ],
   },
   {
     path: "/forecastlist",
-    name: "forecastlist",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ForecastList.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "forecastlist",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/ForecastList.vue"),
+      },
+    ],
   },
   {
     path: "/historicalsales",
-    name: "historicalsales",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/HistoricalSales.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "historicalsales",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/HistoricalSales.vue"
+          ),
+      },
+    ],
   },
   {
     path: "/loginview",
-    name: "loginview",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/LoginView.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "loginview",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/LoginView.vue"),
+      },
+    ],
   },
   {
     path: "/modelsdetails",
-    name: "modelsdetails",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ModelsDetails.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "modelsdetails",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/ModelsDetails.vue"),
+      },
+    ],
   },
   {
     path: "/modelsquery",
-    name: "modelsquery",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ModelsQuery.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "modelsquery",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/ModelsQuery.vue"),
+      },
+    ],
   },
   {
     path: "/registerview",
-    name: "registerview",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/RegisterView.vue"),
+    component: CommonLayout,
+    children: [
+      {
+        path: "",
+        name: "registerview",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/RegisterView.vue"),
+      },
+    ],
+  },
+  {
+    path: "/userslist",
+    component: AdminLayout,
+    children: [
+      {
+        path: "",
+        name: "userslist",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/UsersList.vue"),
+      },
+    ],
   },
 ];
 
