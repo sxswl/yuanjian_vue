@@ -9,7 +9,9 @@
           <span>远见汽车销售预测系统</span>
         </div>
         <div class="auth-buttons">
-          <a-button type="link">个人信息</a-button>
+          <a-button type="link" @click="$router.push('/adminusers')"
+            >个人信息</a-button
+          >
           <a-button type="primary">用户信息</a-button>
         </div>
       </a-layout-header>

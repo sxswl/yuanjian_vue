@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createMemoryHistory, RouteRecordRaw } from "vue-router";
 import BasicLayout from "@/layouts/BasicLayout.vue"; // 导入 BasicLayout
 import AdminLayout from "@/layouts/AdminLayout.vue"; // 导入 AdminLayout
 import CommonLayout from "@/layouts/CommonLayout.vue";
@@ -24,21 +24,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "",
         name: "commonusers",
         component: () =>
-          import(
-            /* webpackChunkName: "about" */ "../views/CommonUsersinfo.vue"
-          ),
-      },
-    ],
-  },
-  {
-    path: "/adminusers",
-    component: AdminLayout,
-    children: [
-      {
-        path: "",
-        name: "adminusers",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/AdminUsersinfo.vue"),
+          import(/* webpackChunkName: "about" */ "../views/Usersinfo.vue"),
       },
     ],
   },
@@ -55,78 +41,6 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/deleteuser",
-    component: AdminLayout,
-    children: [
-      {
-        path: "",
-        name: "deleteuser",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/DeleteUser.vue"),
-      },
-    ],
-  },
-  {
-    path: "/insertuser",
-    component: AdminLayout,
-    children: [
-      {
-        path: "",
-        name: "insertuser",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/InsertUser.vue"),
-      },
-    ],
-  },
-  {
-    path: "/saleslist",
-    component: CommonLayout,
-    children: [
-      {
-        path: "",
-        name: "saleslist",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/SalesList.vue"),
-      },
-    ],
-  },
-  {
-    path: "/selectuser",
-    component: AdminLayout,
-    children: [
-      {
-        path: "",
-        name: "selectuser",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/SelectUser.vue"),
-      },
-    ],
-  },
-  {
-    path: "/updateuser",
-    component: AdminLayout,
-    children: [
-      {
-        path: "",
-        name: "updateuser",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/UpdateUser.vue"),
-      },
-    ],
-  },
-  {
-    path: "/bindemail",
-    component: CommonLayout,
-    children: [
-      {
-        path: "",
-        name: "bindemail",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/BindEmail.vue"),
-      },
-    ],
-  },
-  {
     path: "/changepassword",
     component: CommonLayout,
     children: [
@@ -135,18 +49,6 @@ const routes: Array<RouteRecordRaw> = [
         name: "changepassword",
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/ChangePassword.vue"),
-      },
-    ],
-  },
-  {
-    path: "/findpassword",
-    component: CommonLayout,
-    children: [
-      {
-        path: "",
-        name: "findpassword",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/FindPassword.vue"),
       },
     ],
   },
@@ -201,18 +103,6 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/modelsquery",
-    component: CommonLayout,
-    children: [
-      {
-        path: "",
-        name: "modelsquery",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/ModelsQuery.vue"),
-      },
-    ],
-  },
-  {
     path: "/registerview",
     component: CommonLayout,
     children: [
@@ -239,7 +129,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createMemoryHistory(),
   routes,
 });
 
